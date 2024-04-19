@@ -61,7 +61,7 @@ void loop() {
   int milliseconds = Timer % 1000; // Get remaining milliseconds
 
   lcd.setCursor(2, 0);
-  lcd.print("Stopwatch:")
+  lcd.print("Stopwatch:");
 
   lcd.setCursor(3, 1);
   lcd.print((minutes < 10) ? "0" : "");  // Print leading zero if minutes less than 10
@@ -78,7 +78,7 @@ void loop() {
   lcd.print(":");
 
   lcd.setCursor(9, 1);
-  lcd.print((milliseconds < 100) ? "00" : (milliseconds < 1000) ? "0" : "");  // Adjust for 3 digits
+  lcd.print((milliseconds < 100) ? "00" : (milliseconds < 1000) ? "" : "");  // Adjust for 3 digits
   lcd.print(milliseconds);
 
   int Counter = myData.lapcount;
