@@ -29,8 +29,8 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   // Serial.print("Bool: ");
   // Serial.println(myData.d);
   // Serial.println();
-  Serial.println(myData.elapsed);
-  Serial.println();
+  // Serial.println(myData.elapsed);
+  // Serial.println();
 }
  
 void setup() {
@@ -52,5 +52,19 @@ void setup() {
 }
  
 void loop() {
+
+  long Timer = myData.elapsed;
+
+  int minutes = Timer / (60 * 1000); // Convert milliseconds to minutes
+  int seconds = (Timer % (60 * 1000)) / 1000; // Get remaining seconds after removing minutes
+  int milliseconds = Timer % 1000; // Get remaining milliseconds
+
+  Serial.print("Elapsed Time: ");
+  Serial.print(minutes);
+  Serial.print(":");
+  Serial.print(seconds, DEC);
+  Serial.print(":");
+  Serial.println(milliseconds, DEC);
+  delay(10); // Small delay to avoid ove
 
 }
